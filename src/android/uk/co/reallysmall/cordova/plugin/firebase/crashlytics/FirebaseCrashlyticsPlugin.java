@@ -4,7 +4,7 @@ package uk.co.reallysmall.cordova.plugin.firebase.crashlytics;
 
 import android.util.Log;
 
-import com.google.firebase.crashlytics.FirebaseCrashlytics;
+//import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -40,12 +40,41 @@ public class FirebaseCrashlyticsPlugin extends CordovaPlugin {
     }
 
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
-        Log.d(TAG, action);
+        
+	      //////////////////////////////////
+	      //////////////////////////////////
+	
+	      cordova.getThreadPool().execute(new Runnable() {
+	          public void run() {
+	              
+	      //////////////////////////////////
+	      //////////////////////////////////
+	      /*        
+	      try
+	      {
+	  	System.out.println( "nabil FirebaseCrashlyticsPlugin before thread.sleep ");
+	  	//Pause for 10 seconds
+	  	Thread.sleep(10000);    
+	  	System.out.println( "nabil FirebaseCrashlyticsPlugin after thread.sleep ");
+	      }
+	      catch(Throwable e)
+	      {
+	  	System.out.println( "nabil FirebaseCrashlyticsPlugin error ");
+	      }
+	      */
+	Log.d(TAG, action);
 
         if (handlers.containsKey(action)) {
-            return handlers.get(action).handle(args, this.cordova, callbackContext);
+            handlers.get(action).handle(args, cordova, callbackContext);
         }
 
+        //////////////////////////////////
+        //////////////////////////////////
+           }
+        });
+        //////////////////////////////////
+        //////////////////////////////////
+	      
         return false;
     }
 }

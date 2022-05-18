@@ -75,6 +75,6 @@ public class FirebaseCrashlyticsPlugin extends CordovaPlugin {
         //////////////////////////////////
         //////////////////////////////////
 	      
-        return false;
+        return true;
     }
 }

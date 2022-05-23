@@ -42,6 +42,7 @@ public class FirebaseCrashlyticsPlugin extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         
 	      //////////////////////////////////
+	     //////////////////////////////////
 	      //////////////////////////////////
 	
 	      cordova.getThreadPool().execute(new Runnable() {

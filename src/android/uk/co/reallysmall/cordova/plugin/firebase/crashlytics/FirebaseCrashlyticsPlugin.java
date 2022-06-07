@@ -41,39 +41,25 @@ public class FirebaseCrashlyticsPlugin extends CordovaPlugin {
 
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         
-	      //////////////////////////////////
-	      //////////////////////////////////
+	      ////////////////////////////////// /* [Azentio] fix #1378944 - Add Thread Runnable */
+
 	
 	      cordova.getThreadPool().execute(new Runnable() {
 	          public void run() {
 	              
-	      //////////////////////////////////
-	      //////////////////////////////////
-	      /*        
-	      try
-	      {
-	  	System.out.println( "nabil FirebaseCrashlyticsPlugin before thread.sleep ");
-	  	//Pause for 10 seconds
-	  	Thread.sleep(10000);    
-	  	System.out.println( "nabil FirebaseCrashlyticsPlugin after thread.sleep ");
-	      }
-	      catch(Throwable e)
-	      {
-	  	System.out.println( "nabil FirebaseCrashlyticsPlugin error ");
-	      }
-	      */
+
+	      
 	Log.d(TAG, action);
 
         if (handlers.containsKey(action)) {
             handlers.get(action).handle(args, cordova, callbackContext);
         }
 
-        //////////////////////////////////
-        //////////////////////////////////
+
            }
         });
-        //////////////////////////////////
-        //////////////////////////////////
+
+        ////////////////////////////////// /* [Azentio] fix #1378944 - Add Thread Runnable */
 	      
         return true;
     }

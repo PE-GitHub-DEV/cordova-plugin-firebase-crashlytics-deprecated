@@ -41,7 +41,7 @@ public class FirebaseCrashlyticsPlugin extends CordovaPlugin {
 
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         
-	      ////////////////////////////////// /* [Azentio] fix #1378944 - Add Thread Runnable */
+	      
 
 	
 	      cordova.getThreadPool().execute(new Runnable() {
@@ -59,7 +59,7 @@ public class FirebaseCrashlyticsPlugin extends CordovaPlugin {
            }
         });
 
-        ////////////////////////////////// /* [Azentio] fix #1378944 - Add Thread Runnable */
+        
 	      
         return true;
     }
